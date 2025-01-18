@@ -1,0 +1,8 @@
+
+<button (click) ="ds.toggleInput()">Neues Dashboard erstellen</button>
+<div *ngIf="ds.showInput">
+    <!-- create input field for new Dashboardname-->
+    <label for="ds.userInput">Wie soll das neue Dashboard heißen?:</label>
+    <input [(ngModel)]="ds.userInput" id="ds.userInput" />
+    <button (click)="ds.submitInput()">Bestätigen</button>
+  </div>

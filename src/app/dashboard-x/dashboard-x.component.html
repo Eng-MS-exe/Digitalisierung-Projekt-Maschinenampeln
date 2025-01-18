@@ -1,0 +1,16 @@
+
+<!-- create buttons for every Dashboard -->
+<div class="dashboard-settings"  *ngFor="let Dashboard of ds.Dashboardlist">
+    
+    <p>{{Dashboard.Title}}</p>
+
+        <button (click)="showDashboardDetail(Dashboard.Id)">anzeigen</button>
+        <button (click)="onToggleDashboardID(Dashboard.Id, Dashboard.Title)">bearbeiten</button>
+        <button (click)="ds.deleteDashboard(Dashboard.Id)">löschen</button>
+    
+</div>
+
+<!-- text if there is no Dashboard -->
+<div class="dashboard-settings" *ngIf="ds.Dashboardlist.length === 0">
+    <p>Lege ein neues Dashboard an!</p>
+</div>

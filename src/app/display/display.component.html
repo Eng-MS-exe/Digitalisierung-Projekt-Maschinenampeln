@@ -1,0 +1,14 @@
+<!-- load chosen dashboard -->
+<h1 >{{ dashboard.Title }}</h1>
+<div>
+  <div class="dashboard-detail"
+       *ngIf="dashboard" 
+       [ngStyle]="{ 'background-image': 'url(' + (dashboard.background || '') + ')' }">
+
+    
+
+    <!-- load aktive lights in Dashboard -->
+    <app-light [lights]="filteredLights"></app-light>
+  
+  </div>
+</div>

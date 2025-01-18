@@ -1,0 +1,16 @@
+<!-- load header, show dashboards in list -->
+<app-header [headerText]="headerText"></app-header>
+<div *ngIf="showDashboardlist">
+    <app-neues-dashboard></app-neues-dashboard>
+    <p>Dashboardliste:</p>
+    <app-dashboard-x (toggleEvent)="toggleDashboardID($event)"></app-dashboard-x>
+</div>
+  
+
+
+<!--toggle to Editor-->
+<div *ngIf="showDashboardEditor">
+    <app-dashboard-editor [activeId]="activeId" (toggleEvent)="goback()"></app-dashboard-editor>
+</div>
+
+

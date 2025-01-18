@@ -1,0 +1,52 @@
+<div *ngIf="light">
+   <h2>Bearbeite die Ampel: {{ light.Lightname }}</h2>
+   
+    <!-- edit name -->
+    <div class="regler">
+      <label for="name">Name:</label>
+      <input id="name" [(ngModel)]="light.Lightname" placeholder="Name der Ampel" />
+
+      <!-- edit lightposition -->
+      <div>
+        <label for="xPosition">X-Position [%]: </label>
+        <input id="xPosition" [(ngModel)]="light.position.x" type="number" placeholder="X-Position" min="0" max="100" />
+      </div>
+      <div>
+        <label for="yPosition">Y-Position [%]: </label>
+        <input id="yPosition" [(ngModel)]="light.position.y" type="number" placeholder="Y-Position" min="0" max="100" />
+      </div>
+
+      <!-- edit lightsize -->
+      <div>
+          <label for="size">Größe [%]: </label>
+          <input id="size" [(ngModel)]="light.size" type="number" placeholder="Größe der Ampel in %" />
+      </div>
+    </div> 
+
+   <!-- edit lightcolors -->
+   <div class="Lampen">
+      <label for="colors">Lämpchen:</label>
+      <div *ngFor="let color of light.colors; let i = index">
+        <div>
+          <input type="checkbox" [(ngModel)]="color.status" /> 
+          (ID: {{ color.colorId }}) (Farbe: {{ color.color }}) 
+          <button (click)="editColor(color)">Farbe ändern</button>
+          <button (click)="deleteColor(i)">Lampe löschen</button>
+        </div>
+      </div>
+   </div>
+ 
+
+   <!-- add new lightlight -->
+    <div class="generate">
+        <label>neues Lämpchen erstellen :</label>
+        <div>
+          <input id="color" [(ngModel)]="newColor" placeholder="Neue Farbe" />
+          <button (click)="addNewColor()">Neue Farbe hinzufügen</button>
+      </div>
+    </div>
+  
+   <!-- save or cancel -->
+   <button (click)="saveChanges()">Speichern</button>
+   <button (click)="cancelEdit()">Abbrechen</button>
+ </div>

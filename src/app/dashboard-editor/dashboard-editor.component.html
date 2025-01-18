@@ -1,0 +1,41 @@
+<div class="editor">
+    <div>
+        <div class="dashboard" *ngIf="dashboard" [ngStyle]="{ 'background-image': 'url(' + (dashboard.background || '') + ')' }"> <!-- load background -->
+            <app-light [lights]="filteredLights"></app-light>   <!-- show lights aktiv in dashboard in preview -->
+        </div>
+    </div>
+
+    <div>
+        <div class="editortools">
+            <div class="maintools">
+                <!-- create editortools -->
+                <button (click)="selectbackground()">Hintergrund bearbeiten</button> 
+                <button (click)="addNewLight()">Ampel hinzufügen</button>
+                <button (click)="ongoback()">zurück</button>
+            </div>
+
+            <!-- create lightlist of lights aktiv in chosen dashboard -->
+            <div *ngIf="filteredLights.length !== 0">
+                <div class="lightrow" *ngFor="let light of filteredLights">
+                    <div class="light-item" [class.selected]="light === selectedLight">
+                        <span>{{ light.Lightname }}</span>
+                        <button (click)="editLight(light)">bearbeiten</button>
+                        <button (click)="deleteLight(light.LightId)">löschen</button>
+                    </div>
+                </div>
+            </div>
+
+            <div *ngIf="filteredLights.length === 0">
+                <p>Füge eine neue Ampel hinzu!</p>
+            </div>
+
+            <!-- call light-editor if needed -->
+            <app-light-editor
+                *ngIf="isModalVisible && selectedLight"
+                [light]="selectedLight"
+                (save)="saveLight($event)"
+                (cancel)="closeModal()">
+            </app-light-editor>
+        </div>
+    </div>
+</div>

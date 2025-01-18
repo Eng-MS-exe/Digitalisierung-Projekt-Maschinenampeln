@@ -1,0 +1,141 @@
+.editor {
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  gap: 10px;
+  height: 100vh;
+}
+
+.editor > div:first-child {
+  border-right: 2px solid rgba(0, 0, 0, 0.5);
+  
+  .dashboard {
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 100%;
+    height: 100%;
+  }
+
+  .light-item {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .light-item.selected {
+    border: 2px solid #ff0000;
+  }
+
+  .light-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 60px;
+    height: 120px;
+    padding: 5px;
+    background-color: rgba(1, 1, 1);
+  }
+
+  .light {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin: 5px;
+    transition: background-color 0.3s ease;
+  }
+
+  .light-color.active {
+    opacity: 1;
+  }
+
+  .light-color.inactive {
+    opacity: 0.3;
+  }
+}
+
+.editortools {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  margin: 16px 8px 0 8px;
+}
+
+.maintools {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 16px;
+
+  button {
+    width: 148px;
+    font-size: 24px;
+    border: 2px solid rgba(0, 0, 0, 0.8);
+
+    &:hover {
+      background-color: rgba(0, 0, 0, 0.3);
+      cursor: pointer;
+    }
+  }
+}
+
+.lightrow {
+  position: relative;
+  height: 32px;
+  background-color: rgba(0, 0, 0, 0.1);
+  border: 2px solid rgba(0, 0, 0, 0.8);
+  border-radius: 8px;
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
+  font-size: 24px;
+  padding-top: 2px;
+  padding-left: 16px;
+
+  .light-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  button {
+    position: absolute;
+    width: 96px;
+    margin-right: 8px;
+    height: 24px;
+    font-size: 16px;
+
+    &:last-child {
+      right: 0;
+    }
+
+    &:nth-last-child(2) {
+      right: 104px;
+    }
+
+    &:hover {
+      background-color: rgba(0, 0, 0, 0.3);
+      cursor: pointer;
+    }
+  }
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modal {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  width: 400px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}

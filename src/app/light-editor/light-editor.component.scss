@@ -1,0 +1,73 @@
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .modal-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    width: 400px;
+  }
+  
+  button {
+    margin-top: 10px;
+    margin-left: 8px;
+  }
+
+  .regler {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+  
+    label {
+      margin-right: 10px;
+    }
+  
+    div {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+  
+    input {
+      padding: 5px;
+      width: 150px;
+    }
+  }
+
+
+  .Lampen{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+
+
+    label {
+      margin-right: 10px;
+      margin-top: 20px;
+      font-weight: bold;
+      font-size: 204x;
+    }
+  
+  }
+
+  .generate {
+    margin-top: 16px;
+    gap: 8px;
+    label {
+      margin-right: 10px;  // Distance between label and input
+      margin-top: 20px;
+      font-weight: bold;
+      font-size: 204x;
+    }
+  }
